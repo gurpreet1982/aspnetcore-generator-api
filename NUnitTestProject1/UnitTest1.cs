@@ -22,5 +22,11 @@ namespace NUnitTestProject1
 
 
         }
+
+        [Test]
+        public void ReturnTrue()
+        {
+            Assert.AreEqual(3, 3);
+        }
     }
 }
