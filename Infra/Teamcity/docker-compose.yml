@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+ teamcityserver:
+  image: jetbrains/teamcity-server
+  ports:
+   - '8111:8111'
+  volumes:
+   - C:\TeamCity\Data:C:/ProgramData/JetBrains/TeamCity
+   - C:\TeamCity\Logs:C:/TeamCity/logs
+  networks:
+   - teamcity
+ 
+ teamcityagent:
+  image: jetbrains/teamcity-agent
+  environment:
+   - SERVER_URL=http://teamcityserver:8111
+  volumes:
+   - C:\TeamCity\agent\config:C:/BuildAgent/conf
+  networks:
+   - teamcity
+
+networks:
+ teamcity:
