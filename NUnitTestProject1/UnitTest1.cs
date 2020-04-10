@@ -18,6 +18,7 @@ namespace NUnitTestProject1
             var generated = range.Of(() => "");
             Assert.AreEqual(3, generated.Count());
             
+
         }
     }
 }
